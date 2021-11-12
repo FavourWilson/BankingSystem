@@ -1,0 +1,68 @@
+﻿@page
+@model BankingSystem.Pages.Customers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Customer_Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Customers.Fullname" class="control-label"></label>
+                <input asp-for="Customers.Fullname" class="form-control" />
+                <span asp-validation-for="Customers.Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.Dob" class="control-label"></label>
+                <input type="date" asp-for="Customers.Dob" class="form-control" />
+                <span asp-validation-for="Customers.Dob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.HomeAddress" class="control-label"></label>
+                <input asp-for="Customers.HomeAddress" class="form-control" />
+                <span asp-validation-for="Customers.HomeAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.EmailAddress" class="control-label"></label>
+                <input asp-for="Customers.EmailAddress" class="form-control" />
+                <span asp-validation-for="Customers.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.PhoneNumber" class="control-label"></label>
+                <input asp-for="Customers.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Customers.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.NextOfKin" class="control-label"></label>
+                <input asp-for="Customers.NextOfKin" class="form-control" />
+                <span asp-validation-for="Customers.NextOfKin" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="AcctDetails.AccountType" class="control-label"></label>
+                <select asp-for="AcctDetails.AccountType" class="custom-select mr-sm-2"
+                        asp-items="Html.GetEnumSelectList<AccountType>()">
+
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
